@@ -1,0 +1,78 @@
+// -------------------- plug-ins -------------------- //
+
+plugins {
+	id 'com.softicar.gradle.code.validation' version '4.0.3' apply false
+	id 'com.softicar.gradle.java.library' version '4.0.3'
+}
+
+// -------------------- dependencies -------------------- //
+
+allprojects {
+	repositories {
+		mavenCentral()
+	}
+}
+
+// -------------------- compile -------------------- //
+
+subprojects {
+	apply plugin: 'com.softicar.gradle.java.library'
+
+	sourceCompatibility = "15"
+	targetCompatibility = "15"
+
+	compileJava {
+		options.encoding = "UTF-8"
+	}
+}
+
+// -------------------- validation -------------------- //
+
+subprojects {
+	apply plugin: 'com.softicar.gradle.code.validation'
+
+	softicarCodeValidationSettings {
+		validationEntryPointClass = "com.softicar.platform.common.core.java.code.validation.JavaCodeValidationEntryPoint"
+		arguments = [ "--mandatoryTranslations", "de" ]
+	}
+
+	check.dependsOn softicarCodeValidation
+}
+
+// -------------------- web -------------------- //
+
+configurations {
+	web
+}
+
+dependencies {
+	subprojects.each { subproject ->
+		web subproject
+	}
+}
+
+task webbuild(dependsOn: subprojects.tasks['jar'], type: Sync) {
+	into "$rootDir/WEB-INF"
+	from file("web.xml")
+
+	into("lib") {
+		from configurations.web
+	}
+}
+
+clean {
+	delete "$rootDir/WEB-INF/"
+}
+
+// -------------------- war -------------------- //
+
+task war(type: Jar) {
+	dependsOn webbuild
+
+	archiveFileName = provider { "com.mydomain.example.war" }
+	archiveExtension = "war"
+
+	into("WEB-INF") {
+		from "$rootDir/WEB-INF"
+	}
+}

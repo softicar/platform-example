@@ -1,4 +1,4 @@
 dependencies {
 	// Use a version from https://github.com/softicar/platform/releases
-	implementation "com.softicar.platform:platform-core-module:10.0.1"
+	implementation "com.softicar.platform:platform-core-module:11.0.0"
 }

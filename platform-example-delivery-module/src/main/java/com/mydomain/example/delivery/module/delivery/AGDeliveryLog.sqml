@@ -1,0 +1,14 @@
+PACKAGE com.mydomain.example.delivery.module.delivery
+
+IMPORT com.softicar.platform.core.module.transaction.AGTransaction
+
+// Note:
+// - Log tables should always match the name of the original table, with an added "Log" suffix.
+TABLE AGDeliveryLog 'Delivery.DeliveryLog' {
+
+	PK AGDelivery delivery
+	PK AGTransaction transaction
+	Boolean active = NULL [NULLABLE]
+	String number = NULL [NULLABLE MAXLENGTH=255]
+	DayTime date = NULL [NULLABLE]
+}

@@ -1,0 +1,16 @@
+PACKAGE com.mydomain.example.delivery.module.delivery
+
+IMPORT com.mydomain.example.delivery.module.AGDeliveryModuleInstance
+
+// Note:
+// - Table names should always be singular (not: plural).
+// - Database names should always reflect the module name,
+//   i.e. module: "DeliveryModule" => database name: "Delivery".
+TABLE AGDelivery 'Delivery.Delivery' {
+
+	PK Integer id = SERIAL
+	AGDeliveryModuleInstance deliveryModuleInstance
+	Boolean active = TRUE
+	String number [MAXLENGTH=255]
+	DayTime date = NOW
+}

@@ -1,0 +1,9 @@
+PACKAGE com.mydomain.example.delivery.module
+
+IMPORT com.softicar.platform.core.module.access.module.instance.AGModuleInstance
+IMPORT com.softicar.platform.core.module.transaction.AGTransaction
+
+TABLE AGDeliveryModuleInstance 'Delivery.DeliveryModuleInstance' {
+	PK AGModuleInstance moduleInstance = BASE
+	AGTransaction transaction
+}

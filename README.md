@@ -33,42 +33,42 @@ This repository provides the project "Platform Example". Its anatomy is describe
    - Database tables are defined in `.sqml` files. From those, corresponding Java code is generated via the [SQML Eclipse Plugin](https://github.com/softicar/sqml).
    - A typical directory tree is structured as follows:
      ```
-platform-example                                        // top-level project
-├── gradle/                                             // gradle-wrapper home
-│   └── wrapper
-│       ├── gradle-wrapper.jar
-│       └── gradle-wrapper.properties
-├── platform-example-delivery-module                    // sub-project of the Delivery module
-│   ├── src/main/java                                   // java source folder of the module
-│   │   └── com.mydomain.example.delivery.module        // the module-specific package
-│   │       ├── delivery
-│   │       │   ├── AGDeliveryGenerated.java
-│   │       │   ├── AGDelivery.java
-│   │       │   ├── AGDeliveryLog.java
-│   │       │   ├── AGDeliveryLog.sqml
-│   │       │   ├── AGDelivery.sqml                     // SQML definition of DB table "Delivery.Delivery"
-│   │       │   ├── AGDeliveryTable.java
-│   │       │   └── DeliveryManagementPage.java
-│   │       ├── AGDeliveryModuleInstanceGenerated.java
-│   │       ├── AGDeliveryModuleInstance.java
-│   │       ├── AGDeliveryModuleInstance.sqml
-│   │       ├── AGDeliveryModuleInstanceTable.java
-│   │       ├── DeliveryI18n.java                       // enumerates user-facing labels and translations
-│   │       ├── DeliveryImages.java                     // enumerates image resources
-│   │       └── DeliveryModule.java                     // the primary class of the module
-│   ├── src/main/resources
-│   │   └── com.mydomain.example.delivery.module        // the module-specific package
-│   │       └── delivery-module.svg
-│   ├── src/test/java
-│   │   └── com.mydomain.example.delivery.module        // the module-specific package
-│   │       └── delivery
-│   │           └── AGDeliveryTest.java
-│   └── build.gradle                                    // gradle build script of the module
-├── build.gradle                                        // gradle build script of the top-level project
-├── gradlew                                             // gradle-wrapper executable
-├── gradlew.bat                                         // gradle-wrapper executable
-├── settings.gradle                                     // gradle build settings
-└── web.xml                                             // web application deployment descriptor
+     platform-example                                        // top-level project
+     ├── gradle/                                             // gradle-wrapper home
+     │   └── wrapper
+     │       ├── gradle-wrapper.jar
+     │       └── gradle-wrapper.properties
+     ├── platform-example-delivery-module                    // sub-project of the Delivery module
+     │   ├── src/main/java                                   // java source folder of the module
+     │   │   └── com.mydomain.example.delivery.module        // the module-specific package
+     │   │       ├── delivery
+     │   │       │   ├── AGDeliveryGenerated.java
+     │   │       │   ├── AGDelivery.java
+     │   │       │   ├── AGDeliveryLog.java
+     │   │       │   ├── AGDeliveryLog.sqml
+     │   │       │   ├── AGDelivery.sqml                     // SQML definition of DB table "Delivery.Delivery"
+     │   │       │   ├── AGDeliveryTable.java
+     │   │       │   └── DeliveryManagementPage.java
+     │   │       ├── AGDeliveryModuleInstanceGenerated.java
+     │   │       ├── AGDeliveryModuleInstance.java
+     │   │       ├── AGDeliveryModuleInstance.sqml
+     │   │       ├── AGDeliveryModuleInstanceTable.java
+     │   │       ├── DeliveryI18n.java                       // enumerates user-facing labels and translations
+     │   │       ├── DeliveryImages.java                     // enumerates image resources
+     │   │       └── DeliveryModule.java                     // the primary class of the module
+     │   ├── src/main/resources
+     │   │   └── com.mydomain.example.delivery.module        // the module-specific package
+     │   │       └── delivery-module.svg
+     │   ├── src/test/java
+     │   │   └── com.mydomain.example.delivery.module        // the module-specific package
+     │   │       └── delivery
+     │   │           └── AGDeliveryTest.java
+     │   └── build.gradle                                    // gradle build script of the module
+     ├── build.gradle                                        // gradle build script of the top-level project
+     ├── gradlew                                             // gradle-wrapper executable
+     ├── gradlew.bat                                         // gradle-wrapper executable
+     ├── settings.gradle                                     // gradle build settings
+     └── web.xml                                             // web application deployment descriptor
      ```
 1. [Gradle](https://gradle.org/) is used as a build system, and to manage **dependencies**.
    - The [SoftiCAR Platform](https://github.com/softicar/platform) version is defined in `platform-example-delivery-module/build.gradle`.
@@ -106,8 +106,8 @@ For prototyping purposes, an integrated [Jetty Server](https://www.eclipse.org/j
       public static void main(String[] args) {
 
           new HotDeploymentWebServiceServer(DevelopmentServlet.class)//
-                  .setRequestString("service?id=" + EmfSourceCodeReferencePoints.getUuidOrThrow(PageService.class))
-                  .setPort(8000).startAndJoin();
+                .setRequestString("service?id=" + EmfSourceCodeReferencePoints.getUuidOrThrow(PageService.class))
+                .setPort(8000).startAndJoin();
       }
   }
   ```

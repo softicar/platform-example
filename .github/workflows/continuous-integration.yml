@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
-          java-version: '15'
+          java-version: '17'
           cache: 'gradle'
       - name: Gradle Wrapper Validation
         uses: gradle/wrapper-validation-action@v1

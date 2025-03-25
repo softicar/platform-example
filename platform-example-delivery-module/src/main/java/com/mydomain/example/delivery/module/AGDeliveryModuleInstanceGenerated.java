@@ -1,7 +1,7 @@
 package com.mydomain.example.delivery.module;
 
 import com.softicar.platform.common.core.annotations.Generated;
-import com.softicar.platform.core.module.access.module.instance.AGModuleInstance;
+import com.softicar.platform.core.module.module.instance.AGModuleInstanceBase;
 import com.softicar.platform.core.module.transaction.AGTransaction;
 import com.softicar.platform.db.runtime.field.IDbBaseField;
 import com.softicar.platform.db.runtime.field.IDbForeignField;
@@ -14,25 +14,25 @@ import com.softicar.platform.db.runtime.object.sub.DbSubObjectTableBuilder;
  */
 @Generated
 @SuppressWarnings("all")
-public class AGDeliveryModuleInstanceGenerated extends AbstractDbSubObject<AGDeliveryModuleInstance, AGModuleInstance> {
+public class AGDeliveryModuleInstanceGenerated extends AbstractDbSubObject<AGDeliveryModuleInstance, AGModuleInstanceBase> {
 
 	// -------------------------------- STATIC CONSTANTS -------------------------------- //
 
 	// @formatter:off
-	private static final DbSubObjectTableBuilder<AGDeliveryModuleInstance, AGDeliveryModuleInstanceGenerated, AGModuleInstance, Integer> BUILDER = new DbSubObjectTableBuilder<>("Delivery", "DeliveryModuleInstance", AGDeliveryModuleInstance::new, AGDeliveryModuleInstance.class);
+	private static final DbSubObjectTableBuilder<AGDeliveryModuleInstance, AGDeliveryModuleInstanceGenerated, AGModuleInstanceBase, Integer> BUILDER = new DbSubObjectTableBuilder<>("Delivery", "DeliveryModuleInstance", AGDeliveryModuleInstance::new, AGDeliveryModuleInstance.class);
 	static {
 		BUILDER.setTitle(DeliveryI18n.DELIVERY_MODULE_INSTANCE);
 		BUILDER.setPluralTitle(DeliveryI18n.DELIVERY_MODULE_INSTANCES);
 	}
 
-	public static final IDbBaseField<AGDeliveryModuleInstance, AGModuleInstance, Integer> MODULE_INSTANCE = BUILDER.addBaseField("moduleInstance", o->o.m_moduleInstance, (o,v)->o.m_moduleInstance=v, AGModuleInstance.TABLE).setTitle(DeliveryI18n.MODULE_INSTANCE);
+	public static final IDbBaseField<AGDeliveryModuleInstance, AGModuleInstanceBase, Integer> MODULE_INSTANCE = BUILDER.addBaseField("moduleInstance", o->o.m_moduleInstance, (o,v)->o.m_moduleInstance=v, AGModuleInstanceBase.TABLE).setTitle(DeliveryI18n.MODULE_INSTANCE);
 	public static final IDbForeignField<AGDeliveryModuleInstance, AGTransaction> TRANSACTION = BUILDER.addForeignField("transaction", o->o.m_transaction, (o,v)->o.m_transaction=v, AGTransaction.ID).setTitle(DeliveryI18n.TRANSACTION);
 	public static final AGDeliveryModuleInstanceTable TABLE = new AGDeliveryModuleInstanceTable(BUILDER);
 	// @formatter:on
 
 	// -------------------------------- GETTERS AND SETTERS -------------------------------- //
 
-	public final AGModuleInstance getModuleInstance() {
+	public final AGModuleInstanceBase getModuleInstance() {
 
 		return pk();
 	}
@@ -62,7 +62,7 @@ public class AGDeliveryModuleInstanceGenerated extends AbstractDbSubObject<AGDel
 
 	// -------------------------------- FIELD MEMBERS -------------------------------- //
 
-	private AGModuleInstance m_moduleInstance;
+	private AGModuleInstanceBase m_moduleInstance;
 	private AGTransaction m_transaction;
 }
 

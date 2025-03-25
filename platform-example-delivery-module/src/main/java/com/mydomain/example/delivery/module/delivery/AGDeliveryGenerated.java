@@ -4,7 +4,7 @@ import com.mydomain.example.delivery.module.AGDeliveryModuleInstance;
 import com.mydomain.example.delivery.module.DeliveryI18n;
 import com.softicar.platform.common.core.annotations.Generated;
 import com.softicar.platform.common.date.DayTime;
-import com.softicar.platform.core.module.access.module.instance.AGModuleInstance;
+import com.softicar.platform.core.module.module.instance.AGModuleInstanceBase;
 import com.softicar.platform.db.runtime.field.IDbBooleanField;
 import com.softicar.platform.db.runtime.field.IDbDayTimeField;
 import com.softicar.platform.db.runtime.field.IDbForeignRowField;
@@ -32,7 +32,7 @@ public class AGDeliveryGenerated extends AbstractDbObject<AGDelivery> {
 	}
 
 	public static final IDbIdField<AGDelivery> ID = BUILDER.addIdField("id", o->o.m_id, (o,v)->o.m_id=v).setTitle(DeliveryI18n.ID);
-	public static final IDbForeignRowField<AGDelivery, AGDeliveryModuleInstance, AGModuleInstance> DELIVERY_MODULE_INSTANCE = BUILDER.addForeignRowField("deliveryModuleInstance", o->o.m_deliveryModuleInstance, (o,v)->o.m_deliveryModuleInstance=v, AGDeliveryModuleInstance.MODULE_INSTANCE).setTitle(DeliveryI18n.DELIVERY_MODULE_INSTANCE);
+	public static final IDbForeignRowField<AGDelivery, AGDeliveryModuleInstance, AGModuleInstanceBase> DELIVERY_MODULE_INSTANCE = BUILDER.addForeignRowField("deliveryModuleInstance", o->o.m_deliveryModuleInstance, (o,v)->o.m_deliveryModuleInstance=v, AGDeliveryModuleInstance.MODULE_INSTANCE).setTitle(DeliveryI18n.DELIVERY_MODULE_INSTANCE);
 	public static final IDbBooleanField<AGDelivery> ACTIVE = BUILDER.addBooleanField("active", o->o.m_active, (o,v)->o.m_active=v).setTitle(DeliveryI18n.ACTIVE).setDefault(true);
 	public static final IDbStringField<AGDelivery> NUMBER = BUILDER.addStringField("number", o->o.m_number, (o,v)->o.m_number=v).setTitle(DeliveryI18n.NUMBER).setMaximumLength(255);
 	public static final IDbDayTimeField<AGDelivery> DATE = BUILDER.addDayTimeField("date", o->o.m_date, (o,v)->o.m_date=v).setTitle(DeliveryI18n.DATE).setDefaultNow();

@@ -22,4 +22,6 @@ public interface DeliveryI18n extends CoreI18n {
 		.de("Lieferungs-Modulinstanz");
 	I18n0 DELIVERY_MODULE_INSTANCES = new I18n0("Delivery Module Instances")//
 		.de("Lieferungs-Modulinstanzen");
+	I18n0 NUMBER = new I18n0("Number")//
+			.de("Nummer");
 }

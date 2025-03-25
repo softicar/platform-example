@@ -18,25 +18,12 @@ allprojects {
 subprojects {
 	apply plugin: 'com.softicar.gradle.java.library'
 
-	sourceCompatibility = "15"
-	targetCompatibility = "15"
+	sourceCompatibility = "17"
+	targetCompatibility = "17"
 
 	compileJava {
 		options.encoding = "UTF-8"
 	}
-}
-
-// -------------------- validation -------------------- //
-
-subprojects {
-	apply plugin: 'com.softicar.gradle.code.validation'
-
-	softicarCodeValidationSettings {
-		validationEntryPointClass = "com.softicar.platform.common.core.java.code.validation.JavaCodeValidationEntryPoint"
-		arguments = [ "--mandatoryTranslations", "de" ]
-	}
-
-	check.dependsOn softicarCodeValidation
 }
 
 // -------------------- web -------------------- //

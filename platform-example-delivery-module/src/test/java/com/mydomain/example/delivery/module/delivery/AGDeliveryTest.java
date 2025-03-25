@@ -11,7 +11,7 @@ public class AGDeliveryTest extends AbstractCoreTest {
 
 	public AGDeliveryTest() {
 
-		this.deliveryModuleInstance = insertStandardModuleInstance(AGDeliveryModuleInstance.TABLE);
+		this.deliveryModuleInstance = insertModuleInstance(AGDeliveryModuleInstance.TABLE);
 	}
 	
 	@Test
